@@ -2,6 +2,18 @@ import os
 import cv2
 import face_recognition
 import pickle
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from firebase_admin import storage
+
+cred = credentials.Certificate("serviceAccountKey.json")
+# initializong rtdb url for connection 
+firebase_admin.initialize_app(cred,{
+    'databaseURL':"https://facerec-cec69-default-rtdb.firebaseio.com/",
+    'storageBucket':"gs://facerec-cec69.appspot.com"
+})
+
 
 # getting the images for attendance
 folderPath = 'images'
