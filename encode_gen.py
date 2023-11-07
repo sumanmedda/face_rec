@@ -11,7 +11,7 @@ cred = credentials.Certificate("serviceAccountKey.json")
 # initializong rtdb url for connection 
 firebase_admin.initialize_app(cred,{
     'databaseURL':"https://facerec-cec69-default-rtdb.firebaseio.com/",
-    'storageBucket':"gs://facerec-cec69.appspot.com"
+    'storageBucket':"facerec-cec69.appspot.com"
 })
 
 
@@ -24,6 +24,11 @@ studentIds = []
 for path in pathList:
     imgList.append(cv2.imread(os.path.join(folderPath,path)))
     studentIds.append(os.path.splitext(path)[0])
+    
+    fileName = f'{folderPath}/{path}'
+    bucket = storage.bucket()
+    blob = bucket.blob(fileName)
+    blob.upload_from_filename(fileName)
  
 def findEncodings(imagesList):
     encodeList = []
