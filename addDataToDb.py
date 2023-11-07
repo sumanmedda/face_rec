@@ -12,6 +12,7 @@ firebase_admin.initialize_app(cred,{
 ref = db.reference('students')
 data = {
     "456765":{
+        "id":456765,
         "name": "Arpit Sharma",
         "major": "Robotics L",
         "starting_year": 2015,
@@ -21,6 +22,7 @@ data = {
         "last_attendance_time": "2023-11-11 00:54:34"
     },
     "567299":{
+        "id":567299,
         "name":"Rahul Singh",
         "major": "Robotics A",
         "starting_year": 2016,
@@ -30,6 +32,7 @@ data = {
         "last_attendance_time": "2023-11-11 00:52:34"
     },
     "973475":{
+        "id":973475,
         "name":"Karan Gupta",
         "major": "Robotics",
         "starting_year": 2017,
